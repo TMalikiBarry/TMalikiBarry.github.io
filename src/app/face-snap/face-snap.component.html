@@ -1,0 +1,27 @@
+<div class="face-snap-card" [ngClass]="{snapped: appreciation=='Liked', unSnapped: appreciation=='Unliked'}">
+<!--  <p>{{ 4346234.36 | number: '1.0-0' }}</p>-->
+<!--            4 346 234-->
+<!--  <p>{{ 4346234.36 | number: '1.0-1' }}</p>-->
+<!--        4 346 234,4-->
+<!--  <p> {{.923476 | percent: '1.0-2'}}</p>-->
+<!--          92,35 %-->
+<!--  <p>{{ 344.36 | currency }}</p>-->
+<!--        344,36 $US-->
+
+<!--  <p>{{550.32 | currency: 'EUR'}}</p>-->
+<!--      550,32 €-->
+<!--  <p>{{ 4350.21 | currency: 'EUR': 'code'}}</p>-->
+<!--        4 350,21 EUR-->
+  <h2>{{ snapFace.title | titlecase}}</h2>
+<!--  <p>Mis en ligne {{ snapFace.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>-->
+<!--  Mis en ligne à 14:57, le 28 September 2022-->
+<!--  <p>Mis en ligne le {{ snapFace.createdDate | date }}</p>-->
+<!--  Mis en ligne le Sep 28, 2022-->
+<!--  <p>Mis en ligne le {{ snapFace.createdDate | date: 'longDate' }}</p>-->
+<!--  Mis en ligne le September 28, 2022-->
+<!--  <p>Mis en ligne le {{ snapFace.createdDate | date: 'dd/MM/yy, à HH:mm' }}</p>-->
+<!--  Mis en ligne le 28/09/22, à 15:00-->
+  <p>{{snapFace.description}}</p><br>
+  <p *ngIf="snapFace.location">Photo prise à {{snapFace.location | uppercase}}</p>
+  <button (click)="onViewFSnap()">VIEW</button>
+</div>
