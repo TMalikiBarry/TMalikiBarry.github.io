@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import {FaceSnap} from "../models/face-snap";
+import {FormGroup} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FaceSnapsService {
-  faceNaps: FaceSnap[] = [
+
+  constructor(private http: HttpClient) { }
+
+  //########################## Static Method ######################
+
+  faceNaps: FaceSnap[] = [];
+    /*[
     // this.mySnap =
     new FaceSnap(
       1,
@@ -60,10 +69,38 @@ export class FaceSnapsService {
        new Date(),
       0
     )
-  ];
+  ];*/
 
   getAllFaceSnaps(): FaceSnap[]{
     return this.faceNaps;
+  }
+
+  addFaceSnap(formValue: FormGroup){
+    const fSnap = new FaceSnap(
+      this.faceNaps[this.faceNaps.length - 1].id + 1,
+      formValue.value.title,
+      formValue.value.description,
+      formValue.value.imageURL,
+      new Date(),
+      4,
+      formValue.value.location
+    );
+
+    this.faceNaps.push(fSnap);
+  }
+
+  addFaceSnapForm(formValue: { title: string, description: string, imageURL: string, location?: string }){
+    const fSnap = new FaceSnap(
+      this.faceNaps[this.faceNaps.length - 1].id + 1,
+      formValue.title,
+      formValue.description,
+      formValue.imageURL,
+      new Date(),
+      4,
+      formValue.location
+    );
+
+    this.faceNaps.push(fSnap);
   }
 
   getSnapFaceById(id: number):FaceSnap{
@@ -79,8 +116,23 @@ export class FaceSnapsService {
     type == 'snap' ? fSnap.snaps++ : fSnap.snaps--;
 
   }
-  constructor() { }
+
+
+  // ############################## Server Side Methods ################################
+
+  getAllFaceSnapsFromServer(): Observable<FaceSnap []>{
+    return this.http.get<FaceSnap []>("http://localhost:3000/facesnaps");
+  }
+
+  getFaceSnapFromServerById(id: number): Observable<FaceSnap> {
+    return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${id}`);
+  }
+
 }
+
+
+// ############################ Others Methods ##########################
+
 
 /*
     Si ma classe n'avait aucun constructeur par exemple

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FaceSnap} from "../models/face-snap";
 import {FaceSnapsService} from "../services/face-snaps.service";
 import {ActivatedRoute} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-single-face-snap',
@@ -12,6 +13,8 @@ export class SingleFaceSnapComponent implements OnInit {
 
   snapFace!: FaceSnap;
 
+  faceSnap$!: Observable<FaceSnap>;
+
   appreciation!: string;
 
   constructor(private snapFaceService: FaceSnapsService,
@@ -20,7 +23,8 @@ export class SingleFaceSnapComponent implements OnInit {
   ngOnInit(): void {
     this.appreciation="Like ?";
     const facesnapId = +this.route.snapshot.params['id'];
-    this.snapFace = this.snapFaceService.getSnapFaceById(facesnapId);
+    // this.snapFace = this.snapFaceService.getSnapFaceById(facesnapId);
+    this.faceSnap$ = this.snapFaceService.getFaceSnapFromServerById(facesnapId);
   }
 
   onSnap(){

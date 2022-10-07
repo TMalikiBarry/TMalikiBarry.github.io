@@ -20,20 +20,6 @@ export class FaceSnapComponent implements OnInit{
     this.appreciation="Like ?";
   }
 
-  onSnap(){
-    if (this.appreciation==="Unliked" || this.appreciation==="Like ?"){
-      this.snapFaceService.snapFaceSnapById(this.snapFace.id, 'snap');
-      this.appreciation="Liked";
-    } else {
-      this.snapFaceService.snapFaceSnapById(this.snapFace.id, 'unsnap');
-      this.appreciation="Unliked";
-    }
-  }
-  onAddSnap(){
-    this.snapFace.snaps++;
-  }
-
-
   onViewFSnap() {
     this.router.navigateByUrl(`facesnaps/${this.snapFace.id}`);
   }

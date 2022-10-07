@@ -1,0 +1,58 @@
+{
+  "facesnaps": [
+    {
+      "id": 1,
+      "title": "Poulet fumé",
+      "description": "Plat sénégalais succulent, mais importé de la Guinée. Riche en proteins, lipides et sels minéraux",
+      "imageURL":"https://gourmand.viepratique.fr/wp-content/uploads/sites/2/2014/02/poulet-vin-blanc-492x410.jpg",
+      "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
+      "snaps": 2,
+      "location": "Senegal"
+    },
+    {
+      "id":2,
+      "title":"SandWich au poulet",
+      "description":"Le yassa est un plat d’origine sénégalaise à base d'oignons frits et de riz et qui peut être accompagné de viande marinée dans le citron puis frite ou braisée, de poulet ou de poisson. C'est un plat simple, rapide à faire et souvent apprécié de tous grâce à ses ingrédients de base simples et économiques.",
+      "imageURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Chicken_salad_sandwich_01.jpg/1024px-Chicken_salad_sandwich_01.jpg",
+      "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
+      "snaps": 89,
+      "location": "Fouta"
+    },
+    {
+      "id":3,
+      "title":"Voyage nature",
+      "description":"Pour profiter des grands espaces et respirer un bol d'air pur, privilégiez les destinations nature. En Europe, au Canada ou ailleurs, des paysages préservés vous attendent dans des parcs, forêts, lacs ou villages lors de ce voyage nature. Loin de l’agitation des grandes villes et du tourisme de masse, un voyage nature permet aux voyageurs de se ressourcer au calme et de découvrir de sublimes sites naturels : parcs nationaux, montagnes, lacs, campagnes...",
+      "imageURL":"https://img-4.linternaute.com/1HLz3U4BnxeTuogeT2ohh0rXpqg=/660x366/smart/ba2a84927212477aa4dd230019ffd66f/ccmcms-linternaute/11298652.jpg",
+      "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
+      "snaps": 7,
+      "location": "Gamie"
+
+    },
+    {
+      "id":4,
+      "title":"Three Rock Mountain",
+      "description":"Un endroit magnifique pour les randonnées.",
+      "imageURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg",
+      "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
+      "snaps": 23,
+      "location":"Somalie"
+    },
+    {
+      "id":5,
+      "title": "Archibald",
+      "description":"Mon meilleur ami depuis tout petit !",
+      "imageURL":"https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg",
+      "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
+      "snaps": 0
+    },
+    {
+      "id": 6,
+      "title": "Un bon repas",
+      "description": "Mmmh que c'est bon !",
+      "imageUrl": "https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg",
+      "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
+      "snaps": 156
+    }
+
+  ]
+}

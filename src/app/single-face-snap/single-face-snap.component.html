@@ -1,4 +1,4 @@
-<div class="face-snap-card" [ngClass]="{snapped: appreciation=='Liked', unSnapped: appreciation=='Unliked'}">
+<div class="face-snap-card" *ngIf="faceSnap$ | async as snapFace" [ngClass]="{snapped: appreciation=='Liked', unSnapped: appreciation=='Unliked'}">
 
   <h2>{{ snapFace.title | titlecase}}</h2>
   <a routerLink="/facesnaps">BACK</a>
