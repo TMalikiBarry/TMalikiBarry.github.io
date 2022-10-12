@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {map, Observable} from "rxjs";
-import {FaceSnap} from "../models/face-snap";
-import {FaceSnapsService} from "../services/face-snaps.service";
+import {map, Observable, tap} from "rxjs";
+import {FaceSnap} from "../../../core/models/face-snap";
+import {FaceSnapsService} from "../../../core/services/face-snaps.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -46,8 +46,12 @@ export class NewFaceSnapComponent implements OnInit {
     console.log(this.faceSnapPreview$);
     console.log(this.snapForm.value);
     // this.fSnapService.addFaceSnap(this.snapForm); pareille que celle du dessous
-    this.fSnapService.addFaceSnapForm(this.snapForm.value);
-    this.router.navigateByUrl('/facesnaps');
+    // this.fSnapService.addFaceSnapForm(this.snapForm.value);
+    this.fSnapService.addServerFaceNap(this.snapForm.value).pipe(
+      tap(()=> this.router.navigateByUrl('/facesnaps')),
+      tap(()=> console.log("requete passée"))
+    ).subscribe();
+
   }
 
 }

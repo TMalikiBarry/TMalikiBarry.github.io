@@ -6,9 +6,9 @@
 
   <img [src]="snapFace.imageURL" [alt]="snapFace.title">
   <p>{{snapFace.description}}</p><br>
-  <p *ngIf="snapFace.location">Photo prise à {{snapFace.location | uppercase}}</p>
+  <p *ngIf="snapFace.location">Photo prise à <strong>{{snapFace.location | uppercase}}</strong></p>
   <p>
-    <button (click)="onSnap()">{{appreciation}}</button>
+    <button (click)="onSnap(snapFace.id)">{{appreciation}}</button>
     <span [ngStyle]="{color: 'rgb(0,'+ snapFace.snaps*10 +', 0)'}" >👍  {{ snapFace.snaps }}</span>
   </p>
 </div>

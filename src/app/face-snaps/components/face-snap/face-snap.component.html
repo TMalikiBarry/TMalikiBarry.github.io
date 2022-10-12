@@ -22,6 +22,6 @@
 <!--  <p>Mis en ligne le {{ snapFace.createdDate | date: 'dd/MM/yy, à HH:mm' }}</p>-->
 <!--  Mis en ligne le 28/09/22, à 15:00-->
   <p>{{snapFace.description}}</p><br>
-  <p *ngIf="snapFace.location">Photo prise à {{snapFace.location | uppercase}}</p>
+  <p *ngIf="snapFace.location">Photo prise à <strong>{{ snapFace.location | uppercase }}</strong></p>
   <button (click)="onViewFSnap()">VIEW</button>
 </div>

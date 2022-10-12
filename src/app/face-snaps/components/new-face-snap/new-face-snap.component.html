@@ -29,5 +29,5 @@
   <p>Mis en ligne {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
   <img [src]="faceSnap.imageURL" [alt]="faceSnap.title">
   <p>{{ faceSnap.description }}</p>
-  <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
+  <p *ngIf="faceSnap.location">Photo prise à <strong>{{ faceSnap.location | titlecase}}</strong></p>
 </div>
