@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 
@@ -21,7 +21,6 @@ export class LandingPageComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    // console.log(this.emailInput);
     console.log(form.value);
   }
 }

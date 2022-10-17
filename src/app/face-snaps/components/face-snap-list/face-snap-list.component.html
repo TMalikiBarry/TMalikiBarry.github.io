@@ -1,4 +1,1 @@
-<!--<app-face-snap [snapFace]="mySnap" *ngIf="mySnap.snaps > 6"></app-face-snap>
-<app-face-snap [snapFace]="middleSnap" *ngIf="mySnap.snaps > 6"></app-face-snap>
-<app-face-snap [snapFace]="lastSnap" *ngIf="mySnap.snaps > 6"></app-face-snap>-->
 <app-face-snap *ngFor="let snapface of faceSnaps$ | async" [snapFace]="snapface"></app-face-snap>

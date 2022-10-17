@@ -23,19 +23,16 @@ export class SingleFaceSnapComponent implements OnInit {
   ngOnInit(): void {
     this.appreciation="Like ?";
     const facesnapId = +this.route.snapshot.params['id'];
-    // this.snapFace = this.snapFaceService.getSnapFaceById(facesnapId);
     this.faceSnap$ = this.snapFaceService.getFaceSnapFromServerById(facesnapId);
   }
 
   onSnap(id : number){
     if (this.appreciation==="Unliked" || this.appreciation==="Like ?"){
-      // this.snapFaceService.snapFaceSnapById(id, 'snap');
       this.faceSnap$ = this.snapFaceService.snapServerFaceSnapById(id, 'snap')
         .pipe(
           tap(() => this.appreciation="Liked")
     );
     } else {
-      // this.snapFaceService.snapFaceSnapById(id, 'unsnap');
       this.faceSnap$ = this.snapFaceService.snapServerFaceSnapById(id, 'unsnap')
         .pipe(
           tap(() => this.appreciation="Unliked")
