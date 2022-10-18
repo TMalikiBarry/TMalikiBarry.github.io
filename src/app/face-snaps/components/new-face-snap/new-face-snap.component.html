@@ -19,6 +19,7 @@
       <input id="location" type="text" formControlName="location">
     </div>
     <div class="action-buttons">
+      <button (click)="onCancel()" class="delete">Annuler</button>
       <button type="submit" (click)="onSubmitForm()" [disabled]="snapForm.invalid">Enregistrer</button>
     </div>
   </form>

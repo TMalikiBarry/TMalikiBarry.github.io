@@ -9,12 +9,11 @@ const routes: Routes = [
   {path: 'create', component: NewFaceSnapComponent, canActivate: [AuthGuard]},
   {path: '', component: FaceSnapListComponent, canActivate: [AuthGuard]},
   {path: ':id', component: SingleFaceSnapComponent, canActivate: [AuthGuard]},
+  {path: 'update/:id', component: NewFaceSnapComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
-  declarations:[
 
-  ],
   imports:[
     RouterModule.forChild(routes),
   ],

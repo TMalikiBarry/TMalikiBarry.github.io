@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FaceSnap} from "../../../core/models/face-snap";
 import {FaceSnapsService} from "../../../core/services/face-snaps.service";
 import {Router} from "@angular/router";
@@ -14,10 +14,15 @@ export class FaceSnapComponent implements OnInit{
 
   appreciation!: string;
 
-  constructor(private snapFaceService: FaceSnapsService, private router : Router) {
+  constructor(private snapFaceService: FaceSnapsService, private router: Router) {
   }
+
   ngOnInit(): void {
-    this.appreciation="Like ?";
+    this.appreciation = "Like ?";
+  }
+
+  onUpdateFaceSnap() {
+    this.router.navigateByUrl(`facesnaps/update/${this.snapFace.id}`);
   }
 
   onViewFSnap() {

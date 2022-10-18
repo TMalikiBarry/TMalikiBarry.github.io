@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FaceSnap} from "../../../core/models/face-snap";
 import {FaceSnapsService} from "../../../core/services/face-snaps.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Observable, tap} from "rxjs";
 
 @Component({
@@ -18,28 +18,37 @@ export class SingleFaceSnapComponent implements OnInit {
   appreciation!: string;
 
   constructor(private snapFaceService: FaceSnapsService,
-              private route : ActivatedRoute) {
+              private router: Router,
+              private route: ActivatedRoute) {
   }
   ngOnInit(): void {
     this.appreciation="Like ?";
     const facesnapId = +this.route.snapshot.params['id'];
-    this.faceSnap$ = this.snapFaceService.getFaceSnapFromServerById(facesnapId);
+    this.faceSnap$ = this.snapFaceService.getFaceSnapById(facesnapId);
   }
 
   onSnap(id : number){
     if (this.appreciation==="Unliked" || this.appreciation==="Like ?"){
-      this.faceSnap$ = this.snapFaceService.snapServerFaceSnapById(id, 'snap')
+      this.faceSnap$ = this.snapFaceService.snapFaceSnapById(id, 'snap')
         .pipe(
-          tap(() => this.appreciation="Liked")
-    );
+          tap(() => this.appreciation = "Liked")
+        );
     } else {
-      this.faceSnap$ = this.snapFaceService.snapServerFaceSnapById(id, 'unsnap')
+      this.faceSnap$ = this.snapFaceService.snapFaceSnapById(id, 'unsnap')
         .pipe(
-          tap(() => this.appreciation="Unliked")
+          tap(() => this.appreciation = "Unliked")
         );
     }
   }
-  onAddSnap(){
+
+  onDeleteSnap(id: number) {
+    this.snapFaceService.deleteFaceSnap(id).pipe(
+      tap(() => this.router.navigateByUrl('/facesnaps'))
+    )
+      .subscribe()
+  }
+
+  onAddSnap() {
     this.snapFace.snaps++;
   }
 }

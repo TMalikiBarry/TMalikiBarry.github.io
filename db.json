@@ -6,7 +6,7 @@
       "description": "Plat sénégalais succulent, mais importé de la Guinée. Riche en proteins, lipides et sels minéraux",
       "imageURL": "https://gourmand.viepratique.fr/wp-content/uploads/sites/2/2014/02/poulet-vin-blanc-492x410.jpg",
       "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
-      "snaps": 4,
+      "snaps": 7,
       "location": "Senegal"
     },
     {
@@ -33,7 +33,7 @@
       "description": "Un endroit magnifique pour les randonnées.",
       "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg",
       "createdDate": "Mon Dec 13 2021 14:51:42 GMT+0100 (Central European Standard Time)",
-      "snaps": 23,
+      "snaps": 25,
       "location": "Somalie"
     },
     {
@@ -68,6 +68,60 @@
       "location": "Casamance",
       "id": 8,
       "createdDate": "2022-10-12T13:09:54.553Z",
+      "snaps": 8
+    },
+    {
+      "title": "Soleil Couchant",
+      "description": "Brlle vue de la mer et ontagne dans une atmosphère colorée au soleil couchant",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU6n6mcI_04h6w1TS7VbydD1EtnBKBwlJxMQ&usqp=CAU",
+      "location": "Atlantique",
+      "id": 10,
+      "createdDate": "2022-10-18T08:27:59.196Z",
+      "snaps": 7
+    },
+    {
+      "title": "La rosée du matin",
+      "description": "Belles Fleurs De Pavot Rouge Dans Un Champ De Pavot Dans Les Rayons Du Soleil Couchant\n",
+      "imageURL": "https://img.freepik.com/photos-premium/belles-fleurs-pavot-rouge-dans-champ-pavot-dans-rayons-du-soleil-couchant_462005-1231.jpg?w=2000",
+      "location": null,
+      "id": 11,
+      "createdDate": "2022-10-18T08:30:00.855Z",
+      "snaps": 8
+    },
+    {
+      "title": "Goyave",
+      "description": "Fruits jaunes mûrs et feuilles de goyave sur fond blanc\n",
+      "imageURL": "https://img.freepik.com/photos-premium/fruits-jaunes-murs-feuilles-goyave-fond-blanc_462005-1402.jpg",
+      "location": "Casamance",
+      "id": 12,
+      "createdDate": "2022-10-18T08:32:33.275Z",
+      "snaps": 7
+    },
+    {
+      "title": "Sourire",
+      "description": "Souriez car la vie est belle, mais seulement pour ceux qui ont envie de la voir belle",
+      "imageURL": "https://images.midilibre.fr/api/v1/images/view/5b486eb93e45465beb507dd5/large/image.jpg",
+      "location": "Smile Land",
+      "id": 13,
+      "createdDate": "2022-10-18T08:45:45.465Z",
+      "snaps": 7
+    },
+    {
+      "title": "ytasfuys",
+      "description": "iuqxhpikjsgiuagdjsssjsjso",
+      "imageURL": " ",
+      "location": "Guinée",
+      "id": 14,
+      "createdDate": "2022-10-18T09:02:56.900Z",
+      "snaps": 7
+    },
+    {
+      "title": "test",
+      "description": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwww ",
+      "imageURL": "https://img.freepik.com/photos-premium/desert-au-coucher-du-soleil-belles-vagues-sable-soleil-couchant-brillaient-dunes_631068-260.jpg?w=2000",
+      "location": "casablanca",
+      "id": 15,
+      "createdDate": "2022-10-18T09:04:55.277Z",
       "snaps": 8
     }
   ]

@@ -3,4 +3,5 @@
   <p>{{snapFace.description}}</p><br>
   <p *ngIf="snapFace.location">Photo prise à <strong>{{ snapFace.location | uppercase }}</strong></p>
   <button (click)="onViewFSnap()">VIEW</button>
+  <button (click)="onUpdateFaceSnap()" class="toLeft">UPDATE</button>
 </div>
