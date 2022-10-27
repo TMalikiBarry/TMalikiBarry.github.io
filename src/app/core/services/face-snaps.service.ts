@@ -34,8 +34,8 @@ export class FaceSnapsService {
       map(faceSnaps => [...faceSnaps].sort((a, b) => a.id - b.id)),
       map(sortedFaceSnaps => sortedFaceSnaps[sortedFaceSnaps.length - 1]),
       map(previousFaceSnap => ({
-        ...formValue,
         id: previousFaceSnap.id + 1,
+        ...formValue,
         createdDate: new Date(),
         snaps: 7
       })),
@@ -46,8 +46,8 @@ export class FaceSnapsService {
   updateFaceSnap(id: number, formValue: { title: string, description: string, imageURL: string, location?: string }): Observable<FaceSnap> {
     return this.getFaceSnapById(id).pipe(
       map(faceSnapToUpdate => ({
-        ...formValue,
         id: faceSnapToUpdate.id,
+        ...formValue,
         createdDate: faceSnapToUpdate.createdDate,
         snaps: faceSnapToUpdate.snaps
       })),

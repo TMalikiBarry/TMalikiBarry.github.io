@@ -1,7 +1,7 @@
 <div class="landing-block">
   <form #emailForm="ngForm" (ngSubmit)="onSubmit(emailForm)">
     <label for="emailInput">Veuillez renseigner votre email pour recevoir nos newsletter! </label>
-    <input id="emailInput" [(ngModel)] = "emailInput" name="userEmail">
+    <input [(ngModel)]="emailInput" id="emailInput" name="userEmail">&nbsp;&nbsp;
     <button type="submit">OK</button>
   </form>
   <img alt="Snapface logo" src="assets/snapface.png">

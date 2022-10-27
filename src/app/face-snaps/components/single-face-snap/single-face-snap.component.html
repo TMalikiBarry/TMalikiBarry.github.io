@@ -10,6 +10,6 @@
   <p>
     <button (click)="onSnap(snapFace.id)">{{appreciation}}</button>
     <span [ngStyle]="{color: 'rgb(0,'+ snapFace.snaps*10 +', 0)'}" >👍  {{ snapFace.snaps }}</span>
-    <button (click)="onDeleteSnap(snapFace.id)" class="delete"><i class="far fa-trash-alt"></i> Delete</button>
+    <button (click)="onDeleteSnap(snapFace.id)" [ngClass]="'delete'"><i class="far fa-trash-alt"></i> Delete</button>
   </p>
 </div>
