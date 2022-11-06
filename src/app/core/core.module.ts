@@ -5,7 +5,7 @@ import * as fr from "@angular/common/locales/fr";
 import {HeaderComponent} from "./components/header/header.component";
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
-
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
     CommonModule,
     RouterModule,
     HttpClientModule,
+    MatSnackBarModule
   ],
   exports:[
     HeaderComponent

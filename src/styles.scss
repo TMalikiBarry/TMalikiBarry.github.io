@@ -39,4 +39,56 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  .snapped {
+    background-color: rgba(lightgreen, 0.4);
+    color: darkgreen;
+
+    button {
+      box-shadow: lightgreen 3px 3px 7px;
+      color: darkgreen;
+
+      &:active {
+        box-shadow: lightgreen 0 0 5px;
+      }
+    }
+
+    .delete {
+      color: white;
+    }
+  }
+
+  .unSnapped {
+    background-color: rgba(#ec7878, 0.4);
+    color: darkred;
+
+    button {
+      box-shadow: #ec7878 3px 3px 7px;
+      color: darkred;
+
+      &:active {
+        box-shadow: #ec7878 0 0 5px;
+      }
+
+      span {
+        color: darkred;
+      }
+    }
+
+    .delete {
+      color: white;
+    }
+  }
+
+  .snack-success {
+    background-color: rgba(lightgreen, 0.8);
+    color: darkgreen;
+    font-weight: bold;
+  }
+
+  .snack-danger {
+    background-color: rgba(#ec7878, 0.8);
+    color: darkred;
+    font-weight: bold;
+  }
 }

@@ -4,6 +4,9 @@ import {map, Observable, tap} from "rxjs";
 import {FaceSnap} from "../../../core/models/face-snap";
 import {FaceSnapsService} from "../../../core/services/face-snaps.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmationDialogComponent} from "../../dialogs/confirmation-dialog/confirmation-dialog.component";
+import {NotificationService} from "../../../core/services/notification.service";
 
 @Component({
   selector: 'app-new-face-snap',
@@ -15,15 +18,15 @@ export class NewFaceSnapComponent implements OnInit {
   snapForm!: FormGroup;
   faceSnapPreview$!: Observable<FaceSnap>;
   urlRegex!: RegExp;
-
-  // faceSnap$?: Observable<FaceSnap>;
   faceSnapID?: number;
-  currentFaceSnap?: FaceSnap;
+  currentFaceSnap!: FaceSnap;
 
   constructor(private formBuilder: FormBuilder,
               private fSnapService: FaceSnapsService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private dialog: MatDialog,
+              private notif: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -48,24 +51,14 @@ export class NewFaceSnapComponent implements OnInit {
       this.fSnapService.getFaceSnapById(this.faceSnapID).subscribe(
         (value) => {
           console.log(`value suscribed = ${value.description}`);
+          this.currentFaceSnap = value;
           this.snapForm.controls['title'].setValue(value.title);
           this.snapForm.controls['description'].setValue(value.description);
           this.snapForm.controls['imageURL'].setValue(value.imageURL);
           this.snapForm.controls['location'].setValue(value.location);
-          /*this.currentFaceSnap = new FaceSnap(
-            value.id,
-            value.title,
-            value.description,
-            value.imageURL,
-            value.createdDate,
-            value.snaps,
-            value?.location
-          );
-          console.log(`snapface created = ${this.currentFaceSnap.createdDate}`);*/
         }
       );
     }
-    console.log(this.currentFaceSnap);
 
     this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
       map(formValue => ({
@@ -80,21 +73,64 @@ export class NewFaceSnapComponent implements OnInit {
   onSubmitForm() :void {
     console.log(this.snapForm.value);
     if (this.faceSnapID) {
-      this.fSnapService.updateFaceSnap(this.faceSnapID, this.snapForm.value).pipe(
-        tap(() => this.router.navigateByUrl('/facesnaps')),
-      )
-        .subscribe();
+
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        data: {
+          title: 'Update Snap',
+          content: `Are you sure you want to modify ${this.currentFaceSnap.title} ?`,
+          confirmText: 'Update',
+          cancelText: 'Cancel',
+          colorAction: 'primary'
+        },
+        maxWidth: '25rem',
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '500ms',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.fSnapService.updateFaceSnap(this.faceSnapID!, this.snapForm.value).pipe(
+            tap(() => this.router.navigateByUrl('/facesnaps')),
+          )
+            .subscribe(res => {
+              if (res) {
+                this.notif.snackSuccess(`${this.currentFaceSnap.title} successfully updated`)
+              }
+            });
+        }
+      })
+
+
     } else {
       this.fSnapService.addFaceNap(this.snapForm.value).pipe(
         tap(() => this.router.navigateByUrl('/facesnaps')),
         tap(() => console.log("requete passée"))
-      ).subscribe();
+      ).subscribe(res => {
+        if (res) {
+          this.notif.snackSuccess(`${this.currentFaceSnap.title} successfully created`)
+        }
+      });
     }
-
-
   }
 
   onCancel() {
-    this.router.navigateByUrl('/facesnaps');
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        title: 'Cancel ' + (this.faceSnapID ? 'Update' : 'Create') + ' action',
+        content: 'Are you sure to cancel this action ? You will loose all advancemnts!!',
+        confirmText: 'Yes, I am',
+        cancelText: 'No',
+        colorAction: 'warn'
+      },
+      maxWidth: '25rem'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigateByUrl('/facesnaps');
+        this.notif.snackSuccess((this.faceSnapID ? 'Update' : 'Create') + ' action successfully aborted ');
+      }
+    })
+
   }
 }
