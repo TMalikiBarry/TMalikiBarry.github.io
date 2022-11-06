@@ -120,7 +120,7 @@ export class NewFaceSnapComponent implements OnInit {
         content: 'Are you sure to cancel this action ? You will loose all advancemnts!!',
         confirmText: 'Yes, I am',
         cancelText: 'No',
-        colorAction: 'warn'
+        colorAction: 'accent'
       },
       maxWidth: '25rem'
     });
