@@ -7,7 +7,7 @@ import {AuthGuard} from "../core/guards/auth.guard";
 
 const routes: Routes = [
   {path: 'create', component: NewFaceSnapComponent, canActivate: [AuthGuard]},
-  {path: '', component: FaceSnapListComponent, canActivate: [AuthGuard]},
+  {path: '', pathMatch: 'full', component: FaceSnapListComponent, canActivate: [AuthGuard]},
   {path: ':id', component: SingleFaceSnapComponent, canActivate: [AuthGuard]},
   {path: 'update/:id', component: NewFaceSnapComponent, canActivate: [AuthGuard]},
 ];

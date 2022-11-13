@@ -40,13 +40,13 @@ export class SingleFaceSnapComponent implements OnInit {
       this.faceSnap$ = this.snapFaceService.snapFaceSnapById(id, 'snap')
         .pipe(
           tap(() => this.appreciation = "Liked"),
-          tap(() => this.notif.snackSuccess(`<strong><em>${this.snapFace.title}</em></strong> LIKED`)),
+          tap(() => this.notif.snackSuccess(`${this.snapFace.title} LIKED`)),
         );
     } else {
       this.faceSnap$ = this.snapFaceService.snapFaceSnapById(id, 'unsnap')
         .pipe(
           tap(() => this.appreciation = "Unliked"),
-          tap(() => this.notif.snackFail(`<strong><em>${this.snapFace.title}</em></strong> DISLIKED`)),
+          tap(() => this.notif.snackWarn(`${this.snapFace.title} DISLIKED`)),
         );
     }
   }
@@ -56,7 +56,7 @@ export class SingleFaceSnapComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
         title: 'Delete Snap',
-        content: `Are you sure you want to delete <strong><em>${this.snapFace.title}</em></strong> ?`,
+        content: `Are you sure you want to delete ${this.snapFace.title} ?`,
         confirmText: 'Delete',
         cancelText: 'Cancel',
         colorAction: 'warn'
@@ -74,7 +74,7 @@ export class SingleFaceSnapComponent implements OnInit {
           .subscribe(
             res => {
               if (res) {
-                this.notif.snackFail(`<strong><em>${this.snapFace.title}</em></strong> successfully deleted`)
+                this.notif.snackWarn(`${this.snapFace.title} successfully deleted`)
               }
             }
           )

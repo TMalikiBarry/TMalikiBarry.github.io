@@ -9,6 +9,8 @@ import {SingleFaceSnapComponent} from "./components/single-face-snap/single-face
 import {FaceSnapsRoutingModule} from "./face-snaps-routing.module";
 import {ConfirmationDialogComponent} from './dialogs/confirmation-dialog/confirmation-dialog.component';
 import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatDialogModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatInputModule,
+    MatSelectModule
   ],
 
 })

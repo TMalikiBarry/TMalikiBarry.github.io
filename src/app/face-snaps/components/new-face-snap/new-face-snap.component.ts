@@ -77,7 +77,7 @@ export class NewFaceSnapComponent implements OnInit {
       const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
         data: {
           title: 'Update Snap',
-          content: `Are you sure you want to modify <strong><em>${this.currentFaceSnap.title}</em></strong> ?`,
+          content: `Are you sure you want to modify ${this.currentFaceSnap.title} ?`,
           confirmText: 'Update',
           cancelText: 'Cancel',
           colorAction: 'primary'
@@ -94,7 +94,7 @@ export class NewFaceSnapComponent implements OnInit {
           )
             .subscribe(res => {
               if (res) {
-                this.notif.snackSuccess(`<strong><em>${this.currentFaceSnap.title}</em></strong> successfully updated`)
+                this.notif.snackSuccess(`${this.currentFaceSnap.title} successfully updated`)
               }
             });
         }
@@ -107,7 +107,7 @@ export class NewFaceSnapComponent implements OnInit {
         tap(() => console.log("requete passée"))
       ).subscribe(res => {
         if (res) {
-          this.notif.snackSuccess(`<strong><em>${this.currentFaceSnap.title}</em></strong> successfully created`)
+          this.notif.snackSuccess(`${this.currentFaceSnap.title} successfully created`)
         }
       });
     }
@@ -117,7 +117,7 @@ export class NewFaceSnapComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
         title: `Cancel ${this.faceSnapID ? 'Update' : 'Create'} process`,
-        content: `Are you sure to cancel <strong><em>${this.faceSnapID ? 'Update' : 'Create'}</em></strong> process ? You will lose all advancements!!`,
+        content: `Are you sure to cancel ${this.faceSnapID ? 'Update' : 'Create'} process ? You will lose all advancements!!`,
         confirmText: 'Yes, I am',
         cancelText: 'No',
         colorAction: 'accent'
@@ -128,7 +128,7 @@ export class NewFaceSnapComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.router.navigateByUrl('/facesnaps');
-        this.notif.snackSuccess(`<strong><em>${this.faceSnapID ? 'Update' : 'Create'}</em></strong> process successfully deleted`);
+        this.notif.snackSuccess(`${this.faceSnapID ? 'Update' : 'Create'} process successfully aborted`);
       }
     })
 
