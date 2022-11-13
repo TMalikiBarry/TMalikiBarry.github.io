@@ -1,2 +1,16 @@
-
+<div class="search-field">
+  <mat-form-field appearance="outline" class="input-field">
+    <input [(ngModel)]="searchValue" matInput placeholder="Search filed">
+    <button (click)=" onSearch() " mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="select-field">
+    <mat-label>Filter By</mat-label>
+    <mat-select [(value)]="filterBy">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let item of filterReferenceList" [value]="item.value">{{item.viewValue}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 <app-face-snap *ngFor="let snapface of faceSnaps$ | async" [snapFace]="snapface"></app-face-snap>

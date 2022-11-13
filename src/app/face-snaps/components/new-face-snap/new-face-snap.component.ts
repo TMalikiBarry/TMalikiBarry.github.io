@@ -104,7 +104,6 @@ export class NewFaceSnapComponent implements OnInit {
     } else {
       this.fSnapService.addFaceNap(this.snapForm.value).pipe(
         tap(() => this.router.navigateByUrl('/facesnaps')),
-        tap(() => console.log("requete passée"))
       ).subscribe(res => {
         if (res) {
           this.notif.snackSuccess(`${this.currentFaceSnap.title} successfully created`)

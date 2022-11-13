@@ -1,0 +1,27 @@
+.search-field {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 20px auto;
+  padding: .5rem;
+  box-shadow: lightgray 4px 4px 20px;
+  display: flex;
+  justify-content: space-between;
+
+  .input-field {
+    width: 80%;
+
+    button {
+      background-color: #e9e3e3;
+      font-size: 1rem;
+      font-weight: 750;
+    }
+  }
+
+  .select-field {
+    font-weight: 550;
+
+    mat-select {
+      font-size: 1rem;
+    }
+  }
+}
