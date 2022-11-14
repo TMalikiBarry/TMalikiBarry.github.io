@@ -3,10 +3,11 @@ import {RouterModule, Routes} from "@angular/router";
 import {LandingPageComponent} from "./landing-page/components/landing-page/landing-page.component";
 
 const routes: Routes= [
-  {path: 'facesnaps', loadChildren: () => import('./face-snaps/face-snaps.module').then(
-    m => m.FaceSnapsModule
-    )},
-  {path: '', component: LandingPageComponent}
+  {path: '', pathMatch: 'full', component: LandingPageComponent},
+  {
+    path: 'facesnaps', loadChildren: () => import('./face-snaps/face-snaps.module').then(
+      m => m.FaceSnapsModule)
+  }
 ];
 
 @NgModule({

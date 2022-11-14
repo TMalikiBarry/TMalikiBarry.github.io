@@ -17,13 +17,13 @@ export class FaceSnapListComponent implements OnInit {
 
   faceSnaps$!: Observable<FaceSnap[]>;
   searchValue: string = '';
-  filterBy: any = '';
+  filterBy: string = '';
 
   filterReferenceList: ViewHandling[] = [
     {value: 'title', viewValue: 'Titre'},
+    {value: 'location', viewValue: 'Localisaion'},
+    {value: 'snaps', viewValue: 'Nombre de Like'},
     {value: 'description', viewValue: 'Description'},
-    {value: 'location', viewValue: 'Location'},
-    {value: 'snaps', viewValue: 'Snaps'},
     {value: 'createdDate', viewValue: 'Date de création'},
   ];
 
@@ -41,13 +41,24 @@ export class FaceSnapListComponent implements OnInit {
     }
 
     this.faceSnaps$ = this.faceSnaps$.pipe(
-      map((faceSnaps) => faceSnaps.filter(fSnap => fSnap['location']?.toLowerCase() === this.searchValue.toLowerCase())),
+      map((faceSnaps) => faceSnaps.filter(fSnap => {
+        if (this.filterBy === 'title' || this.filterBy === 'location') {
+          return fSnap[this.filterBy]?.toLowerCase() === this.searchValue.toLowerCase() ? fSnap : null;
+        } else if (this.filterBy === 'description') {
+          return fSnap[this.filterBy]?.toLowerCase().includes(this.searchValue.toLowerCase()) ? fSnap : null;
+        } else if (this.filterBy === 'snaps') {
+          let snaps = +this.searchValue;
+          return fSnap[this.filterBy] === snaps ? fSnap : null;
+        }
+        return null;
+      })),
     );
 
-    console.log(` Valeur de recherche ${this.searchValue} ------ Valeur de filtrage ${this.filterBy}`)
+    console.log(` Valeur de recherche ${this.searchValue} ---- Valeur de filtrage ${this.filterBy}`)
   }
 
   getFaceSnaps() {
     this.faceSnaps$ = this.faceSnapService.getAllFaceSnaps();
   }
+
 }

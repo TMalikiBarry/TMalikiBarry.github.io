@@ -8,9 +8,17 @@
   <mat-form-field appearance="outline" class="select-field">
     <mat-label>Filter By</mat-label>
     <mat-select [(value)]="filterBy">
-      <mat-option>None</mat-option>
+      <mat-option value=""></mat-option>
       <mat-option *ngFor="let item of filterReferenceList" [value]="item.value">{{item.viewValue}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
-<app-face-snap *ngFor="let snapface of faceSnaps$ | async" [snapFace]="snapface"></app-face-snap>
+<ng-container *ngIf="(faceSnaps$ |async) else noData">
+  <app-face-snap *ngFor="let snapface of faceSnaps$ | async" [snapFace]="snapface"> Loading data ...</app-face-snap>
+</ng-container>
+
+<ng-template #noData>
+  <div class="search-field">
+    <p>No data available</p>
+  </div>
+</ng-template>
