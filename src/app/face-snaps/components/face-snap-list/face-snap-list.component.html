@@ -13,7 +13,7 @@
     </mat-select>
   </mat-form-field>
 </div>
-<ng-container *ngIf="(faceSnaps$ |async) else noData">
+<ng-container *ngIf="(faceSnaps$ |async)?.length!=0 else noData">
   <app-face-snap *ngFor="let snapface of faceSnaps$ | async" [snapFace]="snapface"> Loading data ...</app-face-snap>
 </ng-container>
 
