@@ -42,13 +42,13 @@ export class FaceSnapListComponent implements OnInit {
 
     this.faceSnaps$ = this.faceSnaps$.pipe(
       map((faceSnaps) => faceSnaps.filter(fSnap => {
-        if (this.filterBy === 'title' || this.filterBy === 'location') {
+        if (this.filterBy === 'location') {
           return fSnap[this.filterBy]?.toLowerCase() === this.searchValue.toLowerCase() ? fSnap : null;
-        } else if (this.filterBy === 'description') {
+        } else if (this.filterBy === 'title' || this.filterBy === 'description') {
           return fSnap[this.filterBy]?.toLowerCase().includes(this.searchValue.toLowerCase()) ? fSnap : null;
         } else if (this.filterBy === 'snaps') {
           let snaps = +this.searchValue;
-          return fSnap[this.filterBy] === snaps ? fSnap : null;
+          return fSnap[this.filterBy] <= snaps ? fSnap : null;
         }
         return null;
       })),
