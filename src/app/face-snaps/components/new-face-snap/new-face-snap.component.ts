@@ -94,7 +94,7 @@ export class NewFaceSnapComponent implements OnInit {
           )
             .subscribe(res => {
               if (res) {
-                this.notif.snackSuccess(`${this.currentFaceSnap.title} successfully updated`)
+                this.notif.snackSuccess(`${res.title} successfully updated`)
               }
             });
         }
@@ -106,7 +106,7 @@ export class NewFaceSnapComponent implements OnInit {
         tap(() => this.router.navigateByUrl('/facesnaps')),
       ).subscribe(res => {
         if (res) {
-          this.notif.snackSuccess(`${this.currentFaceSnap.title} successfully created`)
+          this.notif.snackSuccess(`${res.title} successfully created`)
         }
       });
     }
@@ -127,7 +127,7 @@ export class NewFaceSnapComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.router.navigateByUrl('/facesnaps');
-        this.notif.snackSuccess(`${this.faceSnapID ? 'Update' : 'Create'} process successfully aborted`);
+        this.notif.snackWarn(`${this.faceSnapID ? 'Update' : 'Create'} process successfully aborted`);
       }
     })
 

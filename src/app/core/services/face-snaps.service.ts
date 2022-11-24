@@ -12,11 +12,11 @@ export class FaceSnapsService {
   }
 
   getAllFaceSnaps(): Observable<FaceSnap []> {
-    return this.http.get<FaceSnap []>("http://localhost:3000/facesnaps");
+    return this.http.get<FaceSnap []>("http://localhost:3002/facesnaps");
   }
 
   getFaceSnapById(id: number): Observable<FaceSnap> {
-    return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${id}`);
+    return this.http.get<FaceSnap>(`http://localhost:3002/facesnaps/${id}`);
   }
 
   snapFaceSnapById(id: number, snapType: 'snap' | 'unsnap'): Observable<FaceSnap> {
@@ -25,7 +25,7 @@ export class FaceSnapsService {
         ...faceSnap,
         snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1),
       })),
-      exhaustMap(updatedSnap => this.http.put<FaceSnap>(`http://localhost:3000/facesnaps/${id}`, updatedSnap))
+      exhaustMap(updatedSnap => this.http.put<FaceSnap>(`http://localhost:3002/facesnaps/${id}`, updatedSnap))
     );
   }
 
@@ -39,7 +39,7 @@ export class FaceSnapsService {
         createdDate: new Date(),
         snaps: 7
       })),
-      switchMap(newFaceSnap => this.http.post<FaceSnap>("http://localhost:3000/facesnaps", newFaceSnap))
+      switchMap(newFaceSnap => this.http.post<FaceSnap>("http://localhost:3002/facesnaps", newFaceSnap))
     );
   }
 
@@ -51,12 +51,12 @@ export class FaceSnapsService {
         createdDate: faceSnapToUpdate.createdDate,
         snaps: faceSnapToUpdate.snaps
       })),
-      exhaustMap(updatedFaceSnap => this.http.put<FaceSnap>(`http://localhost:3000/facesnaps/${updatedFaceSnap.id}`, updatedFaceSnap))
+      exhaustMap(updatedFaceSnap => this.http.put<FaceSnap>(`http://localhost:3002/facesnaps/${updatedFaceSnap.id}`, updatedFaceSnap))
     );
   }
 
   deleteFaceSnap(id: number): Observable<FaceSnap> {
-    return this.http.delete<FaceSnap>(`http://localhost:3000/facesnaps/${id}`);
+    return this.http.delete<FaceSnap>(`http://localhost:3002/facesnaps/${id}`);
   }
 
 
