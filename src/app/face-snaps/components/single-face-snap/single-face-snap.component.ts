@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FaceSnap} from "../../../core/models/face-snap";
 import {FaceSnapsService} from "../../../core/services/face-snaps.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {map, Observable, tap} from "rxjs";
+import {Observable, tap} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationDialogComponent} from "../../dialogs/confirmation-dialog/confirmation-dialog.component";
 import {NotificationService} from "../../../core/services/notification.service";
@@ -31,7 +31,7 @@ export class SingleFaceSnapComponent implements OnInit {
     this.appreciation = "Like ?";
     const facesnapId = +this.route.snapshot.params['id'];
     this.faceSnap$ = this.snapFaceService.getFaceSnapById(facesnapId).pipe(
-      map(value => this.snapFace = value),
+      tap(value => this.snapFace = value),
     );
   }
 
