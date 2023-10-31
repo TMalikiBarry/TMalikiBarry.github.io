@@ -44,7 +44,7 @@ export class NewFaceSnapComponent implements OnInit {
     try {
       this.faceSnapID = +this.route.snapshot.params["id"];
       console.log(this.faceSnapID)
-    } catch ({message}) {
+    } catch ({message: message}) {
       console.log(message);
     }
     if (this.faceSnapID) {

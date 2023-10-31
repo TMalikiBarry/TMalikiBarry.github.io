@@ -8,7 +8,7 @@
   <mat-form-field appearance="outline" class="select-field">
     <mat-label>Filter By</mat-label>
     <mat-select [(value)]="filterBy">
-      <mat-option value=""></mat-option>
+      <mat-option></mat-option>
       <mat-option *ngFor="let item of filterReferenceList" [value]="item.value">{{item.viewValue}}</mat-option>
     </mat-select>
   </mat-form-field>
