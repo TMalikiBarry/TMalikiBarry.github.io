@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --build-optimizer --source-map=false  --aot --build-optimizer --vendor-chunk=true --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "snap:server": "json-server --watch db.json --port=3002"
